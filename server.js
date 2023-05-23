@@ -3,10 +3,13 @@ const app = express();
 const http = require('http');
 const userRoutes = require('./app/routes/userRoutes');
 const authRoutes = require('./app/routes/authRoutes');
+const morgan = require('morgan');
 require('./config/db');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use(morgan('dev'));
 
 app.use('/users', userRoutes);
 app.use('/auth', authRoutes);
