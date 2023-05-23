@@ -3,7 +3,6 @@ const authenticate = (req, res, next) => {
   try {
     // Extract the JWT from the request headers or other suitable locations
     const [,token] = req.headers.authorization.split(' ')
-    console.log("=>(userRoutes.js:10) token", req.headers.authorization);
     
     // Verify the JWT
     const decodedToken = jwt.verify(token, 'solstice');

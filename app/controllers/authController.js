@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
@@ -44,7 +42,6 @@ exports.login = async (req, res) => {
     
     // Check if the user exists
     const user = await User.findOne({ email });
-    console.log("=>(authController.js:62) user", user);
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
